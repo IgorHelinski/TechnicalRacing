@@ -1,0 +1,33 @@
+{
+    "name": "Input",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "3af7c737-e2f5-4cb3-9c09-b6af4bdf6e64",
+            "actions": [
+                {
+                    "name": "Shoot",
+                    "type": "Value",
+                    "id": "29071144-f98f-49b0-be3f-ffedbee74dd5",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ae257ff3-b2b6-4492-936a-6d40cf73e7f9",
+                    "path": "*/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
