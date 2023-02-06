@@ -6785,10 +6785,8 @@ MonoBehaviour:
   m_Mesh: {fileID: 462312432}
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 16
-    b: 17
-  m_SelectedVertices: 1000000011000000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &932233890
 Transform:
   m_ObjectHideFlags: 0
@@ -6896,7 +6894,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 851d5c4e6ffbab940a0462ccd7a479f5, type: 3}
   m_Name: 
@@ -6916,7 +6914,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4593f0e4b129db4488de943f5edba8a6, type: 3}
   m_Name: 
@@ -11579,9 +11577,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3394701567722864480, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
+      propertyPath: tireGrip
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701567722864480, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
       propertyPath: inputMenager
       value: 
       objectReference: {fileID: 1912364213}
+    - target: {fileID: 3394701567955648906, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: tireGrip
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3394701567955648906, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: inputMenager
@@ -11589,14 +11597,49 @@ PrefabInstance:
       objectReference: {fileID: 1912364213}
     - target: {fileID: 3394701568456415168, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
+      propertyPath: tireGrip
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568456415168, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
       propertyPath: inputMenager
       value: 
       objectReference: {fileID: 1912364213}
+    - target: {fileID: 3394701568737903416, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568737903416, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568737903416, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568778281209, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: tireGrip
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3394701568778281209, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: inputMenager
       value: 
       objectReference: {fileID: 1912364213}
+    - target: {fileID: 3394701568807798419, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568807798421, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6308588885701391547, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: m_RootOrder
@@ -11657,6 +11700,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToyotaHiluxBetter
       objectReference: {fileID: 0}
+    - target: {fileID: 6685396311682133505, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6685396311682133565, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: ammoUI
@@ -11679,9 +11727,29 @@ PrefabInstance:
       objectReference: {fileID: 1912364213}
     - target: {fileID: 6685396311682133566, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
+      propertyPath: rearTrack
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685396311682133566, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: turnRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685396311682133566, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
       propertyPath: inputMenager
       value: 
       objectReference: {fileID: 1912364213}
+    - target: {fileID: 6685396311682133567, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685396311682133567, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8334720570541204598, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

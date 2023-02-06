@@ -76,7 +76,7 @@ public class MyCarWheel : MonoBehaviour
 
             //Acceleration
             Vector3 accelDir = transform.forward;
-            if(accelInput > 0 && MyCarSpeed <= carTopSpeed && (wheelBackLeft || wheelBackRight))
+            if(accelInput > 0 && MyCarSpeed <= carTopSpeed)
             {
                 float carSpeed = Vector3.Dot(carTransform.forward, carRigidbody.velocity);
                 float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / carTopSpeed);
