@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pkmMagTexture
+  m_Name: AtlynHelmetTexture
   m_Shader: {fileID: 4800000, guid: 1119acd133fe43241ac30bceec29009d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bb45d35a76cc8fd468fce7af6bc9d97c, type: 3}
+        m_Texture: {fileID: 2800000, guid: d6e1d8f4afe44b24fb3ac5837ccda323, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
