@@ -7,6 +7,7 @@ public class MyCarController : MonoBehaviour
     public MyCarWheel[] wheels;
     public MyInput inputMenager;
     private Rigidbody carRb;
+    public GameObject forward;
     //EngineSound
     public AudioSource engineSound;
     private float carSpeed;
@@ -23,6 +24,12 @@ public class MyCarController : MonoBehaviour
     public float wheelBase;
     public float rearTrack;
     public float turnRadius;
+    private float turnRadiusPriv;
+
+    public float driftTurnRadius;
+    public float driftWheelMass;
+    private float driftWheelMassPriv;
+    public float brakeForce;
 
     [Header("Inputs")]
     public float steerInput;
@@ -33,6 +40,8 @@ public class MyCarController : MonoBehaviour
     private void Start()
     {
         carRb = this.GetComponent<Rigidbody>();
+        turnRadiusPriv = turnRadius;
+        driftWheelMassPriv = wheels[0].tireMass;
     }
 
     void Update()
@@ -75,6 +84,36 @@ public class MyCarController : MonoBehaviour
             {
                 w.steerAngle = ackermannAngleRight;
             }
+        }
+
+        if (inputMenager.driftInput)
+        {
+            Drifting();
+        }
+        else
+        {
+            if(turnRadius != turnRadiusPriv)
+            {
+                turnRadius = turnRadiusPriv;
+            }
+           
+            foreach (MyCarWheel w in wheels)
+            {
+                if(w.tireMass != driftWheelMassPriv)
+                {
+                    w.tireMass = driftWheelMassPriv;
+                }
+            }
+        }
+    }
+
+    public void Drifting()
+    {
+        carRb.AddForceAtPosition(-forward.transform.forward * brakeForce, transform.position);
+        turnRadius = driftTurnRadius;
+        foreach(MyCarWheel w in wheels)
+        {
+            w.tireMass = driftWheelMass;
         }
     }
 }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1281773416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281773417}
+  m_Layer: 0
+  m_Name: Forward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1281773417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281773416}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6308588885701391547}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &3394701567713445442
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,18 +161,18 @@ MonoBehaviour:
   wheelBackLeft: 0
   wheelBackRight: 0
   accelInput: 0
-  carAcceTime: 80
-  carTopSpeed: 90
+  carAcceTime: 60
+  carTopSpeed: 70
   MyCarSpeed: 0
   breakInput: 0
   wheelRadius: 0.8
   suspensionRestDist: 0.8
   springStrength: 300
   springDamper: 30
-  tireGrip: 0.8
-  tireMass: 0.6
+  tireGrip: 0.6
+  tireMass: 0.8
   steerAngle: 0
-  steerTime: 10
+  steerTime: 15
 --- !u!1 &3394701567847628937
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,18 +286,18 @@ MonoBehaviour:
   wheelBackLeft: 0
   wheelBackRight: 1
   accelInput: 0
-  carAcceTime: 80
-  carTopSpeed: 90
+  carAcceTime: 60
+  carTopSpeed: 70
   MyCarSpeed: 0
   breakInput: 0
   wheelRadius: 0.8
   suspensionRestDist: 0.8
   springStrength: 300
   springDamper: 30
-  tireGrip: 0.8
-  tireMass: 0.6
+  tireGrip: 0.6
+  tireMass: 0.8
   steerAngle: 0
-  steerTime: 10
+  steerTime: 15
 --- !u!1 &3394701568161399752
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,18 +415,18 @@ MonoBehaviour:
   wheelBackLeft: 1
   wheelBackRight: 0
   accelInput: 0
-  carAcceTime: 80
-  carTopSpeed: 90
+  carAcceTime: 60
+  carTopSpeed: 70
   MyCarSpeed: 0
   breakInput: 0
   wheelRadius: 0.8
   suspensionRestDist: 0.8
   springStrength: 300
   springDamper: 30
-  tireGrip: 0.8
-  tireMass: 0.6
+  tireGrip: 0.6
+  tireMass: 0.8
   steerAngle: 0
-  steerTime: 10
+  steerTime: 15
 --- !u!1 &3394701568470664753
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,18 +540,18 @@ MonoBehaviour:
   wheelBackLeft: 0
   wheelBackRight: 0
   accelInput: 0
-  carAcceTime: 80
-  carTopSpeed: 90
+  carAcceTime: 60
+  carTopSpeed: 70
   MyCarSpeed: 0
   breakInput: 0
   wheelRadius: 0.8
   suspensionRestDist: 0.8
   springStrength: 300
   springDamper: 30
-  tireGrip: 0.8
-  tireMass: 0.6
+  tireGrip: 0.6
+  tireMass: 0.8
   steerAngle: 0
-  steerTime: 10
+  steerTime: 15
 --- !u!1 &3394701568807798421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1035,7 @@ BoxCollider:
   m_GameObject: {fileID: 6401812363238143800}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.0022805738, y: 0.038606483, z: 0.02819149}
   m_Center: {x: 0.038859755, y: 0.0000000014628083, z: 0.0029485256}
@@ -1046,6 +1076,7 @@ Transform:
   - {fileID: 7625441439313795434}
   - {fileID: 7645246633770983505}
   - {fileID: 3394701568470664750}
+  - {fileID: 1281773417}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -1057,8 +1088,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6685396311682133505}
   serializedVersion: 2
-  m_Mass: 15
-  m_Drag: 0.7
+  m_Mass: 18
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1096,6 +1127,7 @@ MonoBehaviour:
   - {fileID: 3394701567955648906}
   - {fileID: 3394701568456415168}
   inputMenager: {fileID: 0}
+  forward: {fileID: 1281773416}
   engineSound: {fileID: 6685396311682133563}
   gearShiftLength: 18
   PitchBoost: 0.8
@@ -1104,7 +1136,10 @@ MonoBehaviour:
   driftAngle: 0
   wheelBase: 3
   rearTrack: 1.5
-  turnRadius: 5
+  turnRadius: 15
+  driftTurnRadius: 10
+  driftWheelMass: 0.4
+  brakeForce: 20
   steerInput: 0
 --- !u!114 &6685396311682133565
 MonoBehaviour:
@@ -1238,7 +1273,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6417fd5216804e74687496a4c4fdb584, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.236
   m_Pitch: 1
   Loop: 1
   Mute: 0

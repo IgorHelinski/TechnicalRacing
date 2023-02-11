@@ -16,6 +16,8 @@ public class MyInput : MonoBehaviour
     public float accelInput;
     public float breakInput;
 
+    public bool driftInput;
+
     public bool shootInput;
     public bool scopeInput;
 
@@ -36,6 +38,8 @@ public class MyInput : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         accelInput = Input.GetAxis("Accel");
         breakInput = Input.GetAxis("Break");
+
+        driftInput = Input.GetButton("Jump");
 
         shootInput = Input.GetButton("Fire1");
         scopeInput = Input.GetButton("Fire2");
