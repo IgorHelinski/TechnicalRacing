@@ -8,6 +8,7 @@ public class MyCarController : MonoBehaviour
     public MyInput inputMenager;
     private Rigidbody carRb;
     public GameObject forward;
+
     //EngineSound
     public AudioSource engineSound;
     private float carSpeed;
@@ -57,7 +58,6 @@ public class MyCarController : MonoBehaviour
         float diffrence = Temp1 - Temp2;
         engineSound.pitch = Mathf.Lerp(engineSound.pitch, (PitchRange * diffrence) + PitchBoost, 0.1f);
         
-
         if (steerInput > 0) // is turning right
         {
             ackermannAngleLeft = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius + (rearTrack / 2))) * steerInput;

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c68859449bd2f40a664c4677fb3a55, type: 3}
+  m_Name: TerroRPG7
+  m_EditorClassIdentifier: 
+  gunName: RPG-7
+  availableShoots: 1
+  shootBuffer: 0
+  aimTime: 5
+  damagePerShot: 40
+  reloadTime: 4

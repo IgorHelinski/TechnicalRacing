@@ -36,8 +36,6 @@ public class MyCarWheel : MonoBehaviour
     public float steerTime;
     private float wheelAngle;
 
-    
-
     private void Update()
     {
         accelInput = inputMenager.accelInput;
