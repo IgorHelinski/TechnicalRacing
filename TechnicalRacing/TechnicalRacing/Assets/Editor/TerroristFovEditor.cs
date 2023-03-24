@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
-
+using System;
+    
 [CustomEditor(typeof(TerroristFov))]
 public class TerroristFovEditor : Editor
 {
