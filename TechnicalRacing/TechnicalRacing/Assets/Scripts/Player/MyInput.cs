@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Mirror;
 
-public class MyInput : MonoBehaviour
+public class MyInput : NetworkBehaviour
 {
     public DeveloperConsoleBehaviour devConsoleScript;
     public bool devConsoleAccess;
@@ -29,40 +30,46 @@ public class MyInput : MonoBehaviour
 
     private void Start()
     {
-        mouse = InputSystem.GetDevice<Mouse>();
-        gamepad = InputSystem.GetDevice<Gamepad>();
+        if (isOwned)
+        {
+            mouse = InputSystem.GetDevice<Mouse>();
+            gamepad = InputSystem.GetDevice<Gamepad>();
+        }
     }
 
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        accelInput = Input.GetAxis("Accel");
-        breakInput = Input.GetAxis("Break");
-
-        driftInput = Input.GetButton("Jump");
-
-        shootInput = Input.GetButton("Fire1");
-        scopeInput = Input.GetButton("Fire2");
-
-        Xon = Input.GetAxis("Joy X");
-        Yon = Input.GetAxis("Joy Y");
-
-        if (Input.GetKeyDown(devConsoleKey) && devConsoleAccess)
+        if (isOwned)
         {
-            devConsoleScript.Toggle();
-        }
+            horizontalInput = Input.GetAxis("Horizontal");
+            accelInput = Input.GetAxis("Accel");
+            breakInput = Input.GetAxis("Break");
 
-        if(gamepad != null)
-        {
-            if (gamepad.startButton.isPressed)
+            driftInput = Input.GetButton("Jump");
+
+            shootInput = Input.GetButton("Fire1");
+            scopeInput = Input.GetButton("Fire2");
+
+            Xon = Input.GetAxis("Joy X");
+            Yon = Input.GetAxis("Joy Y");
+
+            if (Input.GetKeyDown(devConsoleKey) && devConsoleAccess)
             {
-                controllerInput = true;
+                devConsoleScript.Toggle();
             }
-            else
+
+            if (gamepad != null)
             {
-                if (gamepad.selectButton.isPressed)
+                if (gamepad.startButton.isPressed)
                 {
-                    controllerInput = false;
+                    controllerInput = true;
+                }
+                else
+                {
+                    if (gamepad.selectButton.isPressed)
+                    {
+                        controllerInput = false;
+                    }
                 }
             }
         }
