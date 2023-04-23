@@ -27,6 +27,11 @@ public class PlayerObjectController : NetworkBehaviour
         }
     }
 
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     private void PlayerReadyUpdate(bool oldValue, bool newValue)
     {
         if (isServer)
@@ -90,5 +95,21 @@ public class PlayerObjectController : NetworkBehaviour
         {
             LobbyController.Instance.UpdatePlayerList();
         }
+    }
+
+    // start game
+
+    public void CanStartGame(string sceneName)
+    {
+        if (isOwned)
+        {
+            CmdCanStartGame(sceneName);
+        }
+    }
+
+    [Command]
+    public void CmdCanStartGame(string sceneName)
+    {
+        manager.StartGame(sceneName);
     }
 }

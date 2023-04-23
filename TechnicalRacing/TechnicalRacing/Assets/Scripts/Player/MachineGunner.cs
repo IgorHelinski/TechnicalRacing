@@ -9,7 +9,7 @@ public class MachineGunner : MonoBehaviour
     [Header("Setup")]
     public MyInput inputMenager;
     public CameraFollow cameraScript;
-    private Camera mainCamera;
+    public Camera mainCamera;
     private Rigidbody carRb;
 
     [Header("Gun Setup")]
@@ -30,7 +30,7 @@ public class MachineGunner : MonoBehaviour
 
     void Start()
     {
-        mainCamera = Camera.main;
+        //mainCamera = Camera.main;
         carRb = this.GetComponent<Rigidbody>();
 
         readyToFire = true;
