@@ -7,6 +7,8 @@ using Steamworks;
 
 public class SteamLobby : MonoBehaviour
 {
+    public static SteamLobby Instance;
+
     // Callbacks - (happends when something happends to steam)   
     protected Callback<LobbyCreated_t> LobbyCreated;
     protected Callback<GameLobbyJoinRequested_t> JoinRequest;
@@ -17,13 +19,11 @@ public class SteamLobby : MonoBehaviour
     private const string HostAdressKey = "HostAddress";
     private CustomNetworkManager manager;
 
-    //Gameobjects
-    public GameObject HostButton;
-    public TextMeshProUGUI lobbyText;
-
     private void Start()
     {
         if(!SteamManager.Initialized) { return; }
+
+        if(Instance == null) { Instance = this; }
 
         manager = GetComponent<CustomNetworkManager>();
 
@@ -57,10 +57,7 @@ public class SteamLobby : MonoBehaviour
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
         // Everyone who joins lobby
-        HostButton.SetActive(false);
         CurrentLobbyID = callback.m_ulSteamIDLobby;
-        lobbyText.gameObject.SetActive(true);
-        lobbyText.text = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name");
 
         // Clients
         if(NetworkServer.active) { return; }
