@@ -1,18 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using Steamworks;
 
 public class PlayerListItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string PlayerName;
+    public int ConnectionId;
+    public ulong PlayerSteamId;
+    public bool AvatarRecived;
+
+    public TextMeshProUGUI PlayerNameText;
+    public RawImage PlayerIcon;
+
+    protected Callback<AvatarImageLoaded_t> ImageLoaded;
+
+    private void Start()
     {
-        
+        ImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnImageLoaded);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetPlayerValues()
     {
-        
+        PlayerNameText.text = PlayerName;
+        if(!AvatarRecived) { GetPlayerIcon(); }
+    }
+
+    void GetPlayerIcon()
+    {
+        int imageId = SteamFriends.GetLargeFriendAvatar((CSteamID)PlayerSteamId);
+        if(imageId == -1) { return; }
+        PlayerIcon.texture = GetSteamImageAsTexture(imageId);
+    }
+
+    private void OnImageLoaded(AvatarImageLoaded_t callback)
+    {
+        if(callback.m_steamID.m_SteamID == PlayerSteamId) // checks if its us
+        {
+            PlayerIcon.texture = GetSteamImageAsTexture(callback.m_iImage);
+        }
+        else // if its another player
+        {
+            return;
+        }
+    }
+
+    private Texture2D GetSteamImageAsTexture(int iImage)
+    {
+        Texture2D texture = null;
+
+        bool isValid = SteamUtils.GetImageSize(iImage, out uint width, out uint height);
+        if (isValid)
+        {
+            byte[] image = new byte[width * height * 4];
+
+            isValid = SteamUtils.GetImageRGBA(iImage, image, (int)(width * height * 4));
+
+            if (isValid)
+            {
+                texture = new Texture2D((int)width, (int)height, TextureFormat.RGBA32, false, true);
+                texture.LoadRawTextureData(image);
+                texture.Apply();
+            }
+        }
+        AvatarRecived = true;
+        return texture;
     }
 }
