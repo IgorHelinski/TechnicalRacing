@@ -6,7 +6,7 @@ public class MyCarController : MonoBehaviour
 {
     public MyCarWheel[] wheels;
     public MyInput inputMenager;
-    private Rigidbody carRb;
+    public Rigidbody carRb;
     public GameObject forward;
 
     //EngineSound
@@ -40,7 +40,7 @@ public class MyCarController : MonoBehaviour
 
     private void Start()
     {
-        carRb = this.GetComponent<Rigidbody>();
+        //carRb = this.GetComponent<Rigidbody>();
         turnRadiusPriv = turnRadius;
         driftWheelMassPriv = wheels[0].tireMass;
     }
