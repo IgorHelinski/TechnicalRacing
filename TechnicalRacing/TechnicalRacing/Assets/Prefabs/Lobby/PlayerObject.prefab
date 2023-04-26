@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 3535660434339445914, guid: 67425dd6f74021341b44f6f1dad547ee,
         type: 3}
       propertyPath: m_Name
-      value: CameraHolder (1)
+      value: CameraHolder
       objectReference: {fileID: 0}
     - target: {fileID: 3535660434339445914, guid: 67425dd6f74021341b44f6f1dad547ee,
         type: 3}
@@ -416,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 6685396311682133505, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: m_Name
-      value: ToyotaHiluxBetter (1)
+      value: ToyotaHiluxBetter
       objectReference: {fileID: 0}
     - target: {fileID: 6685396311682133505, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
