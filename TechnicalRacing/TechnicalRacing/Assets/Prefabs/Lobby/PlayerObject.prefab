@@ -340,9 +340,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3394701567722864480, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
+      propertyPath: carAcceTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701567722864480, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: carTopSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701567722864480, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
       propertyPath: inputMenager
       value: 
       objectReference: {fileID: 624740352}
+    - target: {fileID: 3394701567955648906, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: carAcceTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701567955648906, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: carTopSpeed
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3394701567955648906, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: inputMenager
@@ -350,9 +370,29 @@ PrefabInstance:
       objectReference: {fileID: 624740352}
     - target: {fileID: 3394701568456415168, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
+      propertyPath: carAcceTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568456415168, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: carTopSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568456415168, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
       propertyPath: inputMenager
       value: 
       objectReference: {fileID: 624740352}
+    - target: {fileID: 3394701568778281209, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: carAcceTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394701568778281209, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
+        type: 3}
+      propertyPath: carTopSpeed
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3394701568778281209, guid: 8e0e0c2c32c16794da66b0a4ea43ade3,
         type: 3}
       propertyPath: inputMenager
