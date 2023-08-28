@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Lobby.unity
     guid: b2dc522f5752b234284fc2ace0716ba6
   - enabled: 1
-    path: Assets/Scenes/RaceTrack1.unity
+    path: Assets/Scenes/Multiplayer/RaceTrack1.unity
     guid: 6757098f6f08f5a4fa0fa1661b3e5f22
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity

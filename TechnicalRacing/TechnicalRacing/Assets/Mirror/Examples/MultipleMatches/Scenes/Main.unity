@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 7297074dacea9ab49b416302d3ae3583, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 7297074dacea9ab49b416302d3ae3583,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1149,7 +1150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Port: 7777
+  port: 7777
   DualMode: 1
   NoDelay: 1
   Interval: 10
@@ -1161,8 +1162,8 @@ MonoBehaviour:
   SendWindowSize: 4096
   MaxRetransmit: 40
   MaximizeSocketBuffers: 1
-  ReliableMaxMessageSize: 298449
-  UnreliableMaxMessageSize: 1199
+  ReliableMaxMessageSize: 297433
+  UnreliableMaxMessageSize: 1195
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
@@ -1189,7 +1190,8 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 200
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 3559083313143303799, guid: 11d2414f1e120a14c98cba6866e5348f, type: 3}
+  playerPrefab: {fileID: 3559083313143303799, guid: 11d2414f1e120a14c98cba6866e5348f,
+    type: 3}
   autoCreatePlayer: 0
   playerSpawnMethod: 1
   spawnPrefabs:
@@ -1830,7 +1832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerList: {fileID: 1295888617}
-  playerPrefab: {fileID: 2742256683483721700, guid: 504f86497324bc040be44f6f88b6cc73, type: 3}
+  playerPrefab: {fileID: 2742256683483721700, guid: 504f86497324bc040be44f6f88b6cc73,
+    type: 3}
   cancelButton: {fileID: 1108207369}
   leaveButton: {fileID: 2105646338}
   startButton: {fileID: 1613178154}
@@ -2829,8 +2832,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matchList: {fileID: 1386671668}
-  matchPrefab: {fileID: 3533216216399874123, guid: df3727c2222378b4ca786485a8b09981, type: 3}
-  matchControllerPrefab: {fileID: 2923784255186993310, guid: e101d385946c91b4c81f318efc723a88, type: 3}
+  matchPrefab: {fileID: 3533216216399874123, guid: df3727c2222378b4ca786485a8b09981,
+    type: 3}
+  matchControllerPrefab: {fileID: 2923784255186993310, guid: e101d385946c91b4c81f318efc723a88,
+    type: 3}
   createButton: {fileID: 1100846363}
   joinButton: {fileID: 8446052}
   lobbyView: {fileID: 490177805}
