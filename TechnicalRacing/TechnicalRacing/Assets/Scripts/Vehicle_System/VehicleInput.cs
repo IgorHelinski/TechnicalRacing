@@ -8,9 +8,6 @@ public class VehicleInput : MonoBehaviour
     public bool devConsoleAccess;
     public KeyCode devConsoleKey = KeyCode.Tab;
 
-    public bool controllerInput;
-    public bool joystickActive;
-
     public float horizontalInput;
     public float accelInput;
     public float breakInput;
@@ -19,9 +16,6 @@ public class VehicleInput : MonoBehaviour
 
     public bool shootInput;
     public bool scopeInput;
-
-    public float Xon;
-    public float Yon;
 
     void Update()
     {
@@ -33,9 +27,6 @@ public class VehicleInput : MonoBehaviour
 
         shootInput = Input.GetButton("Fire1");
         scopeInput = Input.GetButton("Fire2");
-
-        Xon = Input.GetAxis("Joy X");
-        Yon = Input.GetAxis("Joy Y");
 
         if (Input.GetKeyDown(devConsoleKey) && devConsoleAccess)
         {
