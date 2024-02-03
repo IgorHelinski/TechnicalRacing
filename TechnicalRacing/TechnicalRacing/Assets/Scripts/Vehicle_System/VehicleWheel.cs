@@ -7,19 +7,16 @@ public class VehicleWheel : MonoBehaviour
     public VehicleInput inputMenager;
     public Transform carTransform;
     public Rigidbody carRigidbody;
+
     public bool wheelFrontLeft;
     public bool wheelFrontRight;
     public bool wheelBackLeft;
     public bool wheelBackRight;
 
     [Header("Acceleration")]
-    public float accelInput;
     public float carAcceTime;
     public float carTopSpeed;
     public float MyCarSpeed;
-
-    [Header("Breaking")]
-    public float breakInput;
 
     [Header("Suspencion")]
     public float wheelRadius;
@@ -30,11 +27,14 @@ public class VehicleWheel : MonoBehaviour
     [Header("Steering Force")]
     public float tireGrip; // how well tires grip - if lower car slides(drifts)
     public float tireMass;
-
-    [HideInInspector]
-    public float steerAngle;
+    [HideInInspector] public float steerAngle;
     public float steerTime;
+
     private float wheelAngle;
+
+    //inputs
+    private float accelInput;
+    private float breakInput;
 
     private void Update()
     {
@@ -63,7 +63,7 @@ public class VehicleWheel : MonoBehaviour
             float force = (offset * springStrength) - (vel * springDamper);
             carRigidbody.AddForceAtPosition(springDir * force, transform.position);
             Debug.DrawRay(transform.position, springDir * (force / 20), Color.green);
-
+            
             //Steering force
             Vector3 steeringDir = transform.right;
             float steeringVel = Vector3.Dot(steeringDir, tireWorldVel);
@@ -86,18 +86,11 @@ public class VehicleWheel : MonoBehaviour
             //Decceleration ? goin back
             if (breakInput > 0 && (wheelBackLeft || wheelBackRight))
             {
-                //Debug.Log("Breaking halo");
                 float carSpeed = Vector3.Dot(carTransform.forward, carRigidbody.velocity);
                 float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(carSpeed) / carTopSpeed);
                 //float availableTorque = powerCurve.Evaluate(normalizedSpeed) * accelInput;
                 float accel = carAcceTime * (breakInput * -1);
                 carRigidbody.AddForceAtPosition(accelDir * accel, carRigidbody.transform.position);
-            }
-
-            //Keeping car stopped
-            if (accelInput == 0 && breakInput == 0)
-            {
-
             }
         }
     }

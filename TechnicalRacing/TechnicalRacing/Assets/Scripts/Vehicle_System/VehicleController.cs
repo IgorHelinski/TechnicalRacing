@@ -5,18 +5,9 @@ using UnityEngine;
 public class VehicleController : MonoBehaviour
 {
     public VehicleWheel[] wheels;
-    public VehicleInput inputMenager; //
+    public VehicleInput inputMenager; 
     public Rigidbody carRb;
     public GameObject forward;
-
-    //EngineSound
-    public AudioSource engineSound;
-    private float carSpeed;
-    public int gearShiftLength;
-    public float PitchBoost;
-    public float PitchRange;
-    float Temp1;
-    int Temp2;
 
     public float driftValue;
     public float driftAngle;
@@ -53,13 +44,6 @@ public class VehicleController : MonoBehaviour
 
         driftValue = Vector3.Dot(carRb.velocity.normalized, transform.forward);
         driftAngle = Mathf.Acos(driftValue) * Mathf.Rad2Deg;
-
-        carSpeed = carRb.velocity.magnitude;
-        Temp1 = carSpeed / gearShiftLength;
-        Temp2 = (int)Temp1;
-        float diffrence = Temp1 - Temp2;
-        if(engineSound != null)
-            engineSound.pitch = Mathf.Lerp(engineSound.pitch, (PitchRange * diffrence) + PitchBoost, 0.1f);
 
         if (steerInput > 0) // is turning right
         {

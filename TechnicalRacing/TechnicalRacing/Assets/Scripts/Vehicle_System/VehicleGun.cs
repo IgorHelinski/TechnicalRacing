@@ -13,8 +13,11 @@ public class VehicleGun : MonoBehaviour
     private Rigidbody carRb;
 
     [Header("Gun Setup")]
-    public GameObject Browning;
-    public Transform barrelEnd;
+    public Transform GunRotatePoint;
+    public Transform GunBarrelEnd;
+    public Vector3 gunRestEuler; // the rotation of the gun while resting
+
+    [Header("VFX")]
     public GameObject projectile;
     public GameObject impact;
     public AudioSource shootSound;
@@ -26,14 +29,12 @@ public class VehicleGun : MonoBehaviour
     public int ammo;
     bool readyToFire;
 
-    Vector2 turn;
-
     void Start()
     {
-        //mainCamera = Camera.main;
         carRb = this.GetComponent<Rigidbody>();
 
         readyToFire = true;
+
         Cursor.visible = false;
         crosshair.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
@@ -45,33 +46,25 @@ public class VehicleGun : MonoBehaviour
 
         if (inputMenager.scopeInput)
         {
+            // show crosshair
             Cursor.visible = false;
             crosshair.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
 
-            //cameraScript.relativePosition = CameraFollow.RelativePosition.gunnerPos;
             RaycastHit hit;
             Vector3 mousePosition = new Vector3(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height, 0f);
 
+            // bind crosshair to the mouse pos
             crosshair.transform.position = Input.mousePosition;
-
-            //if (inputMenager.controllerInput)
-            //{
-            //    turn.x = Input.GetAxis("Joy X");
-            //    turn.y = Input.GetAxis("Joy Y");
-             //   Vector2 joystick = new Vector2(turn.x, turn.y);
-            //    var nwm = mainCamera.ViewportToScreenPoint(joystick);
-            //    Vector3 finalVector = new Vector3(nwm.x + (Screen.width / 2), nwm.y + (Screen.height / 2), 0f);
-            //    inputMenager.mouse.WarpCursorPosition(finalVector);
-            //}
 
             if (Physics.Raycast(mainCamera.ViewportPointToRay(mousePosition), out hit, 1000))
             {
-                Debug.DrawRay(mainCamera.transform.position, hit.point - Browning.transform.position);
+                // if ray hit something
+                Debug.DrawRay(mainCamera.transform.position, hit.point - GunRotatePoint.position);
 
-                Vector3 lookDirection = hit.point - Browning.transform.position;
+                Vector3 lookDirection = hit.point - GunRotatePoint.position;
                 Quaternion lookRot = Quaternion.LookRotation(lookDirection);
-                Browning.transform.rotation = Quaternion.Slerp(Browning.transform.rotation, lookRot, 3 * Time.deltaTime);
+                GunRotatePoint.rotation = Quaternion.Slerp(GunRotatePoint.rotation, lookRot, 3 * Time.deltaTime);
 
                 if (inputMenager.shootInput && readyToFire && ammo >= 1)
                 {
@@ -80,16 +73,20 @@ public class VehicleGun : MonoBehaviour
             }
             else
             {
-                Browning.transform.localRotation = Quaternion.Slerp(Browning.transform.localRotation, Quaternion.Euler(0, -90, -90), 3 * Time.fixedDeltaTime);
+                // if didn't hit anything
+                // go back to rest pos
+                GunRotatePoint.localRotation = Quaternion.Slerp(GunRotatePoint.localRotation, Quaternion.Euler(gunRestEuler), 3 * Time.fixedDeltaTime);
             }
         }
         else
         {
+            // no input
             Cursor.visible = false;
             crosshair.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Confined;
-            //cameraScript.relativePosition = CameraFollow.RelativePosition.InitalPosition;
-            Browning.transform.localRotation = Quaternion.Slerp(Browning.transform.localRotation, Quaternion.Euler(0, -90, -90), 5 * Time.fixedDeltaTime);
+
+            // go to rest pos
+            GunRotatePoint.localRotation = Quaternion.Slerp(GunRotatePoint.localRotation, Quaternion.Euler(gunRestEuler), 5 * Time.fixedDeltaTime);
         }
     }
 
@@ -97,8 +94,8 @@ public class VehicleGun : MonoBehaviour
     {
         readyToFire = false;
         yield return new WaitForSeconds(fireRate);
-        carRb.AddForce(-Browning.transform.up * 5f, ForceMode.Impulse);
-        GameObject projectileObject = Instantiate(projectile, barrelEnd.position, Browning.transform.rotation);
+        carRb.AddForce(-GunRotatePoint.up * 5f, ForceMode.Impulse);
+        GameObject projectileObject = Instantiate(projectile, GunBarrelEnd.position, GunBarrelEnd.rotation);
         projectileObject.GetComponent<Projectile>().Shoot();
         ammo--;
         shootSound.Play();
